@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import ShopClientLayout from './ShopClientLayout';
 import { MOCK_PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/constants';
 import { Product } from '@/lib/types';
+import styles from './Shop.module.css';
 
 export const metadata = {
   title: 'Our Collection | Noir Scents',
@@ -52,10 +53,10 @@ export default async function ShopPage() {
   }
 
   return (
-    <div className="section container">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-display mb-4">Our Collection</h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+    <div className={`container ${styles.container}`}>
+      <div className={styles.headerSection}>
+        <h1 className={styles.title}>Our Collection</h1>
+        <p className={styles.subtitle}>
           Discover our range of meticulously crafted fragrances, designed to leave a lasting impression.
         </p>
       </div>

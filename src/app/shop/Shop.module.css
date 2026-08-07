@@ -1,0 +1,124 @@
+.container {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary, #0A0A0A);
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  color: #666666;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.controlsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  gap: 1.5rem;
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: #0A0A0A;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-secondary, #C9A84C);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888888;
+  pointer-events: none;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .productsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .controlsBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .searchContainer {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.emptyTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.5rem;
+  color: var(--color-primary, #0A0A0A);
+  margin-bottom: 0.5rem;
+}
+
+.emptyText {
+  color: #666666;
+  margin-bottom: 1.5rem;
+}

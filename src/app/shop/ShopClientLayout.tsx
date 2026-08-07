@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import ProductCard from '@/components/product/ProductCard';
 import CategoryFilter from '@/components/product/CategoryFilter';
 import { Search } from 'lucide-react';
+import styles from './Shop.module.css';
 
 interface ShopClientLayoutProps {
   initialProducts: any[];
@@ -26,37 +27,37 @@ export default function ShopClientLayout({ initialProducts, categories }: ShopCl
 
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+      <div className={styles.controlsBar}>
         <CategoryFilter 
           categories={categories} 
           activeCategory={activeCategory} 
           onCategoryChange={setActiveCategory} 
         />
         
-        <div className="relative w-full md:w-64 flex-shrink-0">
+        <div className={styles.searchContainer}>
           <input
             type="text"
             placeholder="Search fragrances..."
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:border-black"
+            className={styles.searchInput}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+          <Search className={styles.searchIcon} size={18} />
         </div>
       </div>
 
       {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className={styles.productsGrid}>
           {filteredProducts.map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
       ) : (
-        <div className="text-center py-20">
-          <h3 className="text-xl font-medium mb-2">No fragrances found</h3>
-          <p className="text-gray-500">Try adjusting your search or filter criteria.</p>
+        <div className={styles.emptyState}>
+          <h3 className={styles.emptyTitle}>No fragrances found</h3>
+          <p className={styles.emptyText}>Try adjusting your search or filter criteria.</p>
           <button 
-            className="mt-6 btn btn-dark"
+            className="btn btn-dark"
             onClick={() => { setActiveCategory('all'); setSearchQuery(''); }}
           >
             Clear Filters

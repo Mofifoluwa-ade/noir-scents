@@ -8,8 +8,6 @@ export default function Newsletter() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
-  
-  const supabase = createClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,6 +16,7 @@ export default function Newsletter() {
     setStatus('loading');
     
     try {
+      const supabase = createClient();
       const { error } = await supabase
         .from('newsletter_subscribers')
         .insert([{ email }]);

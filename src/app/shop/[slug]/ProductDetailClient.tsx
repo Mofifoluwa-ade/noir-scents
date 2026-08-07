@@ -8,6 +8,7 @@ import { formatPrice } from '@/lib/format';
 import { generateProductWhatsAppLink } from '@/lib/whatsapp';
 import SizeSelector from '@/components/product/SizeSelector';
 import QuantityStepper from '@/components/product/QuantityStepper';
+import styles from './ProductDetail.module.css';
 
 export default function ProductDetailClient({ product }: { product: Product }) {
   const [selectedSize, setSelectedSize] = useState('50ml');
@@ -27,7 +28,6 @@ export default function ProductDetailClient({ product }: { product: Product }) {
   const originalPrice = getPriceForSize(selectedSize);
   const currentPrice = getDiscountedPrice(originalPrice, product.discount_percent);
   const hasDiscount = product.discount_percent > 0;
-  const totalPrice = currentPrice * quantity;
 
   const handleAddToCart = () => {
     addItem(product, selectedSize as any, quantity);
@@ -39,48 +39,46 @@ export default function ProductDetailClient({ product }: { product: Product }) {
   };
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex items-center gap-4">
-        <span className="text-3xl font-semibold text-[var(--color-primary)]">
+    <div className={styles.detailsContent}>
+      <div className={styles.priceRow}>
+        <span className={styles.currentPrice}>
           {formatPrice(currentPrice)}
         </span>
         {hasDiscount && (
-          <span className="text-xl text-gray-400 line-through">
+          <span className={styles.originalPrice}>
             {formatPrice(originalPrice)}
           </span>
         )}
       </div>
 
-      <div className="flex flex-col gap-6">
+      <div className={styles.sizeSection}>
         <SizeSelector 
           product={product} 
           selectedSize={selectedSize} 
           onSizeChange={setSelectedSize} 
         />
-        
-        <div className="flex flex-col gap-2">
-          <span className="text-sm font-medium uppercase tracking-wider text-[var(--color-primary)]">
-            Quantity
-          </span>
-          <div className="self-start">
-            <QuantityStepper 
-              quantity={quantity} 
-              onQuantityChange={setQuantity} 
-            />
-          </div>
-        </div>
+      </div>
+      
+      <div className={styles.quantitySection}>
+        <span className={styles.sectionLabel}>
+          Quantity
+        </span>
+        <QuantityStepper 
+          quantity={quantity} 
+          onQuantityChange={setQuantity} 
+        />
       </div>
 
-      <div className="flex flex-col gap-3 mt-4">
+      <div className={styles.actionsColumn}>
         <button 
-          className="btn btn-dark w-full py-4 text-lg flex items-center justify-center gap-2"
+          className={styles.addToCartBtn}
           onClick={handleAddToCart}
         >
           <ShoppingBag size={20} />
           Add to Cart
         </button>
         <button 
-          className="btn btn-whatsapp w-full py-4 text-lg flex items-center justify-center gap-2"
+          className={styles.whatsappBtn}
           onClick={handleWhatsAppOrder}
         >
           <MessageCircle size={20} />

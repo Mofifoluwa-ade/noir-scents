@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/server';
 import ProductDetailClient from './ProductDetailClient';
 import ProductCard from '@/components/product/ProductCard';
 import { MOCK_PRODUCTS } from '@/lib/constants';
+import styles from './ProductDetail.module.css';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -72,38 +73,40 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     notFound();
   }
 
+  const categoryName = typeof product.category === 'object' ? product.category?.name : product.category;
+
   return (
-    <div className="container section">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-        <div className="relative aspect-square md:aspect-[4/5] bg-[#111] rounded-sm overflow-hidden border border-gold/20">
-          {product.category && (
-            <div className="absolute top-4 left-4 z-10 bg-[var(--color-secondary)] text-white text-xs tracking-wider uppercase px-3 py-1 font-semibold">
-              {typeof product.category === 'object' ? product.category.name : product.category}
+    <div className={`container ${styles.container}`}>
+      <div className={styles.mainGrid}>
+        <div className={styles.imageContainer}>
+          {categoryName && (
+            <div className={styles.categoryBadge}>
+              {categoryName}
             </div>
           )}
           <Image
             src={product.images?.[0] || 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=800'}
             alt={product.name}
             fill
-            className="object-cover"
+            className={styles.productImage}
             priority
           />
         </div>
 
-        <div className="flex flex-col">
-          <h1 className="text-4xl md:text-5xl font-display text-[var(--color-primary)] mb-4">
+        <div>
+          <h1 className={styles.productTitle}>
             {product.name}
           </h1>
           
-          <div className="prose prose-sm md:prose-base text-gray-600 mb-8">
-            <p>{product.description}</p>
-          </div>
+          <p className={styles.productDescription}>
+            {product.description}
+          </p>
 
           <ProductDetailClient product={product} />
           
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="font-display text-2xl mb-4">The Story</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
+          <div className={styles.storySection}>
+            <h3 className={styles.storyTitle}>The Story</h3>
+            <p className={styles.storyText}>
               {product.story || `Every drop of ${product.name} tells a story of craftsmanship and dedication. Sourced from the finest ingredients globally, it is designed to evoke memories and create new ones. A true masterpiece for the modern connoisseur.`}
             </p>
           </div>
@@ -111,9 +114,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </div>
 
       {relatedProducts && relatedProducts.length > 0 && (
-        <div className="mt-24">
-          <h2 className="text-3xl font-display text-center mb-12">You May Also Like</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className={styles.relatedSection}>
+          <h2 className={styles.relatedTitle}>You May Also Like</h2>
+          <div className={styles.relatedGrid}>
             {relatedProducts.map((rp: any) => (
               <ProductCard key={rp.id} product={rp} />
             ))}

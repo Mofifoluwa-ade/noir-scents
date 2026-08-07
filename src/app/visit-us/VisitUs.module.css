@@ -1,0 +1,268 @@
+/* Visit Us Page Styles — Noir Scents */
+
+.hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: var(--color-text-on-dark);
+  padding: var(--space-20) var(--space-6);
+  text-align: center;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.heroTag {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+}
+
+.goldDivider {
+  width: 70px;
+  height: 2px;
+  background: var(--color-secondary);
+  margin: 0 auto var(--space-4);
+}
+
+.heroSubtitle {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: var(--text-base);
+  color: rgba(245, 240, 232, 0.85);
+}
+
+.visitSection {
+  padding: var(--space-20) 0;
+  background-color: var(--color-surface);
+}
+
+.visitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  margin-bottom: var(--space-16);
+}
+
+/* Card Styling */
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-accent-dark);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cardTitleIcon {
+  color: var(--color-secondary-dark);
+}
+
+/* Hours Table */
+.hoursList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.hoursRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px dashed var(--color-accent-dark);
+  font-size: var(--text-base);
+}
+
+.dayLabel {
+  font-weight: var(--font-semibold);
+  color: var(--color-primary);
+}
+
+.timeLabel {
+  color: var(--color-text-secondary);
+}
+
+.openBadge {
+  background-color: rgba(37, 211, 102, 0.12);
+  color: #15803d;
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  margin-left: 8px;
+}
+
+/* Address & Directions */
+.addressBox {
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.addressText {
+  font-size: var(--text-base);
+  color: var(--color-primary);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-2);
+}
+
+.directionsText {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: auto;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-accent-dark);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-base);
+  color: var(--color-primary);
+}
+
+.contactItemIcon {
+  color: var(--color-secondary-dark);
+}
+
+/* VIP Consultation Dark Card */
+.vipCard {
+  background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+  color: var(--color-text-on-dark);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.vipTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--color-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.vipSubtitle {
+  font-size: var(--text-base);
+  color: rgba(245, 240, 232, 0.85);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+}
+
+.vipFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.vipFeatureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.vipFeatureIcon {
+  color: var(--color-secondary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.vipFeatureText h4 {
+  font-size: var(--text-base);
+  color: var(--color-white);
+  margin-bottom: 2px;
+}
+
+.vipFeatureText p {
+  font-size: var(--text-sm);
+  color: rgba(245, 240, 232, 0.7);
+}
+
+.vipBtnGroup {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Map Full Embed */
+.fullMapSection {
+  width: 100%;
+}
+
+.mapHeaderBar {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-6) var(--space-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 3px solid var(--color-secondary);
+}
+
+.mapHeaderTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-secondary);
+}
+
+.fullMapIframe {
+  width: 100%;
+  height: 520px;
+  border: none;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .visitGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: var(--text-3xl);
+  }
+  .fullMapIframe {
+    height: 400px;
+  }
+  .mapHeaderBar {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-2);
+  }
+}

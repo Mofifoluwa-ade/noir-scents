@@ -1,0 +1,11 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin: 0 0 2rem 0;
+}

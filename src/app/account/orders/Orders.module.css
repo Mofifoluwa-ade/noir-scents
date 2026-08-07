@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(10, 10, 10, 0.05);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.table th {
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(10, 10, 10, 0.1);
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table td {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.05);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-primary);
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.orderId {
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.emptyIcon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-secondary);
+  opacity: 0.5;
+}
+
+.emptyText {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.emptySubtext {
+  color: #666;
+  font-size: 1rem;
+}

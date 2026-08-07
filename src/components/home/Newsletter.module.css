@@ -1,0 +1,102 @@
+.section {
+  padding: 6rem 0;
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(245, 240, 232, 0.3);
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+}
+
+.input::placeholder {
+  color: rgba(245, 240, 232, 0.5);
+}
+
+.button {
+  padding: 1rem 2.5rem;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #dcb858;
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  color: #4ade80;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+.errorMessage {
+  color: #f87171;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .inputGroup {
+    flex-direction: column;
+  }
+}

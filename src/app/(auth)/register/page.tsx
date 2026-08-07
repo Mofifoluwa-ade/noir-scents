@@ -60,10 +60,13 @@ function RegisterForm() {
 
   if (success) {
     return (
-      <div className={styles.container}>
-        <h1 className={styles.heading}>Check your email</h1>
+      <div className={styles.card}>
+        <div className={styles.header}>
+          <span className={styles.badge}>NOIR SCENTS</span>
+          <h1 className={styles.heading}>Check Your Email</h1>
+        </div>
         <div className={styles.success}>
-          We've sent a confirmation link to {email}. Please check your inbox to activate your account.
+          We've sent a confirmation link to <strong>{email}</strong>. Please check your inbox to activate your account.
         </div>
         <div className={styles.footer}>
           <Link href="/login" className={styles.link}>
@@ -75,8 +78,12 @@ function RegisterForm() {
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.heading}>Create Your Account</h1>
+    <div className={styles.card}>
+      <div className={styles.header}>
+        <span className={styles.badge}>NOIR SCENTS</span>
+        <h1 className={styles.heading}>Create Account</h1>
+        <p className={styles.subtitle}>Join Noir Scents for an exclusive luxury fragrance experience</p>
+      </div>
       
       {error && <div className={styles.error}>{error}</div>}
       
@@ -87,6 +94,7 @@ function RegisterForm() {
             id="fullName"
             type="text"
             className={styles.input}
+            placeholder="John Doe"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             required
@@ -99,6 +107,7 @@ function RegisterForm() {
             id="email"
             type="email"
             className={styles.input}
+            placeholder="your.email@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -111,6 +120,7 @@ function RegisterForm() {
             id="password"
             type="password"
             className={styles.input}
+            placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -124,6 +134,7 @@ function RegisterForm() {
             id="confirmPassword"
             type="password"
             className={styles.input}
+            placeholder="••••••••"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
@@ -132,16 +143,15 @@ function RegisterForm() {
         
         <button 
           type="submit" 
-          className="btn btn-primary" 
+          className={styles.submitBtn} 
           disabled={loading}
-          style={{ width: '100%', marginTop: '1rem' }}
         >
           {loading ? 'Creating Account...' : 'Create Account'}
         </button>
       </form>
       
       <div className={styles.footer}>
-        Already have an account?{' '}
+        Already have an account?
         <Link href={`/login${redirect !== '/' ? `?redirect=${redirect}` : ''}`} className={styles.link}>
           Sign in
         </Link>
@@ -152,7 +162,7 @@ function RegisterForm() {
 
 export default function RegisterPage() {
   return (
-    <Suspense fallback={<div className="container section text-center">Loading...</div>}>
+    <Suspense fallback={<div style={{ color: '#C9A84C', textAlign: 'center', padding: '3rem' }}>Loading...</div>}>
       <RegisterForm />
     </Suspense>
   );

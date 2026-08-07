@@ -40,8 +40,12 @@ function LoginForm() {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.heading}>Welcome Back</h1>
+    <div className={styles.card}>
+      <div className={styles.header}>
+        <span className={styles.badge}>NOIR SCENTS</span>
+        <h1 className={styles.heading}>Welcome Back</h1>
+        <p className={styles.subtitle}>Enter your email & password to access your account</p>
+      </div>
       
       {error && <div className={styles.error}>{error}</div>}
       
@@ -52,6 +56,7 @@ function LoginForm() {
             id="email"
             type="email"
             className={styles.input}
+            placeholder="your.email@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -64,6 +69,7 @@ function LoginForm() {
             id="password"
             type="password"
             className={styles.input}
+            placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -73,7 +79,7 @@ function LoginForm() {
         <div className={styles.row}>
           <label className={styles.checkboxContainer}>
             <input type="checkbox" />
-            Remember me
+            <span>Remember me</span>
           </label>
           <Link href="/forgot-password" className={styles.forgot}>
             Forgot password?
@@ -82,16 +88,15 @@ function LoginForm() {
         
         <button 
           type="submit" 
-          className="btn btn-primary" 
+          className={styles.submitBtn} 
           disabled={loading}
-          style={{ width: '100%', marginTop: '1rem' }}
         >
           {loading ? 'Signing in...' : 'Sign In'}
         </button>
       </form>
       
       <div className={styles.footer}>
-        Don't have an account?{' '}
+        Don't have an account?
         <Link href={`/register${redirect !== '/' ? `?redirect=${redirect}` : ''}`} className={styles.link}>
           Create one
         </Link>
@@ -102,7 +107,7 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="container section text-center">Loading...</div>}>
+    <Suspense fallback={<div style={{ color: '#C9A84C', textAlign: 'center', padding: '3rem' }}>Loading...</div>}>
       <LoginForm />
     </Suspense>
   );

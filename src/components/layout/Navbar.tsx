@@ -7,12 +7,14 @@ import { useCartStore } from '@/store/cart';
 import { NAV_LINKS, STORE_CONFIG } from '@/lib/constants';
 import MobileMenu from './MobileMenu';
 import CartDrawer from '@/components/cart/CartDrawer';
+import SearchModal from './SearchModal';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   
   const items = useCartStore((state) => state.items);
   const cartItemCount = items ? items.reduce((acc, item) => acc + item.quantity, 0) : 0;
@@ -53,9 +55,13 @@ export default function Navbar() {
           </nav>
 
           <div className={styles.actions}>
-            <Link href="/shop" className={styles.iconBtn} aria-label="Search">
+            <button 
+              className={styles.iconBtn} 
+              aria-label="Search"
+              onClick={() => setIsSearchOpen(true)}
+            >
               <Search size={20} />
-            </Link>
+            </button>
             <Link href="/account" className={styles.iconBtn} aria-label="User Account">
               <User size={20} />
             </Link>
@@ -81,6 +87,11 @@ export default function Navbar() {
       <CartDrawer
         open={isCartOpen}
         onOpenChange={setIsCartOpen}
+      />
+
+      <SearchModal
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
       />
     </>
   );

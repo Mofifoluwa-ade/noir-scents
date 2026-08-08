@@ -73,6 +73,7 @@ export const FOOTER_QUICK_LINKS = [
   { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
   { label: 'Refund Policy', href: '/refund-policy' },
+  { label: 'Admin Portal', href: '/admin' },
 ] as const;
 
 export const ADMIN_NAV_LINKS = [

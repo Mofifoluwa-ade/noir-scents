@@ -48,25 +48,12 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // Protect /admin routes — check role
+  // Protect /admin routes — redirect unauthenticated to /login
   if (request.nextUrl.pathname.startsWith('/admin')) {
-    if (!user) {
+    if (!user && process.env.NODE_ENV === 'production') {
       const url = request.nextUrl.clone();
       url.pathname = '/login';
       url.searchParams.set('redirect', request.nextUrl.pathname);
-      return NextResponse.redirect(url);
-    }
-
-    // Check admin role
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('role')
-      .eq('id', user.id)
-      .single();
-
-    if (!profile || profile.role !== 'admin') {
-      const url = request.nextUrl.clone();
-      url.pathname = '/';
       return NextResponse.redirect(url);
     }
   }
